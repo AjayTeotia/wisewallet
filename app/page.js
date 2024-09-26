@@ -1,9 +1,12 @@
-import Dashboard from "./dashboard/page";
+import Headers from "./_components/Header";
+import Hero from "./_components/Hero";
 
 export default function Home() {
   return (
-    <>
-      <Dashboard />
-    </>
+    <div>
+      <Headers />
+
+      <Hero />
+    </div>
   );
 }
