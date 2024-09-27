@@ -92,6 +92,7 @@ const CreateBudget = () => {
                   <h2 className="font-medium my-2">Budget Amount</h2>
                   <Input
                     type="number"
+                    value={` ${amount}`}
                     placeholder="e.g. ₹ 500"
                     onChange={(e) => setAmount(e.target.value)}
                   />
