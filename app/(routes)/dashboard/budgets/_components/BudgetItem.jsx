@@ -29,7 +29,7 @@ const BudgetItem = ({ budget }) => {
         <h2 className="text-lg font-bold">₹ {budget.amount}</h2>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-5 mb-5">
         <div className="flex mb-2 items-center justify-between">
           <h2 className="text-sm text-muted-foreground">
             ₹ {budget.totalSpend ? budget.totalSpend : 0} Spend
@@ -43,8 +43,8 @@ const BudgetItem = ({ budget }) => {
         <div className="w-full h-2 rounded-full bg-gray-300">
           <div
             className="h-2 rounded-full bg-blue-500"
-            style={{ 
-              width: `${calProgressPercentage()}%` 
+            style={{
+              width: `${calProgressPercentage()}%`,
             }}
           ></div>
         </div>

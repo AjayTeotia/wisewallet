@@ -8,11 +8,13 @@ import React, { useEffect, useState } from "react";
 import BudgetItem from "../../budgets/_components/BudgetItem";
 import { Skeleton } from "@/components/ui/skeleton";
 import AddExpenses from "../_components/AddExpenses";
+import ExpensesListTable from "../_components/ExpensesListTable";
 
 const ExpensesPage = ({ params }) => {
   const { user } = useUser();
   const [loading, setLoading] = useState(true);
   const [budgetInfo, setBudgetInfo] = useState();
+  const [expensesList, setExpensesList] = useState([]);
 
   const getBudgetInfo = async () => {
     if (!user) return;
@@ -35,9 +37,20 @@ const ExpensesPage = ({ params }) => {
 
     setBudgetInfo(res[0]);
 
+    getExpensesList();
+
     //console.log("res", res);
   };
 
+  const getExpensesList = async () => {
+    const res = await db
+      .select()
+      .from(Expenses)
+      .where(eq(Expenses.budgetId, params.id))
+      .orderBy(desc(Expenses.createdAt));
+    setExpensesList(res);
+    console.log(res);
+  };
   useEffect(() => {
     user && getBudgetInfo();
   }, [user]);
@@ -62,7 +75,16 @@ const ExpensesPage = ({ params }) => {
         <AddExpenses
           budgetId={params.id}
           user={user}
-          refreshData={getBudgetInfo}
+          refreshData={() => getBudgetInfo()}
+        />
+      </div>
+
+      <div className="mt-4">
+        <h2 className="font-bold text-xl">Latest Expenses</h2>
+
+        <ExpensesListTable
+          expensesList={expensesList}
+          refreshData={() => getBudgetInfo()}
         />
       </div>
     </div>
