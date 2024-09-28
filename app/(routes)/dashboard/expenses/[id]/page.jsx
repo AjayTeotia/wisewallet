@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import EditBudget from "../_components/EditBudget";
 
 const ExpensesPage = ({ params }) => {
   const { user } = useUser();
@@ -91,13 +92,16 @@ const ExpensesPage = ({ params }) => {
     <div className="p-10">
       <h2 className="text-2xl font-bold flex justify-between items-center">
         My Expenses
-        <span>
+        <div className="flex items-center font-semibold gap-x-2">
+          <EditBudget budgetInfo={budgetInfo} refreshData={getBudgetInfo} />
+
           <AlertDialog>
-            <AlertDialogTrigger>
+            <AlertDialogTrigger asChild>
               <Button className="flex gap-2 items-center" variant="destructive">
                 <Trash /> Delete
               </Button>
             </AlertDialogTrigger>
+
             <AlertDialogContent>
               <AlertDialogHeader>
                 <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -115,7 +119,7 @@ const ExpensesPage = ({ params }) => {
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-        </span>
+        </div>
       </h2>
 
       <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 ">
