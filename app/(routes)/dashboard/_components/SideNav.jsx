@@ -50,8 +50,8 @@ const SideNav = () => {
             <Link href={item.path} key={item.id}>
               <h2
                 key={item.id}
-                className={`flex items-center gap-2 mb-2 font-medium p-5 cursor-pointer rounded-md hover:bg-red-200 hover:text-red-600 ${
-                  path === item.path && "bg-red-200 text-red-600"
+                className={`flex items-center gap-2 mb-2 font-medium p-5 cursor-pointer rounded-md hover:bg-gray-500 hover:text-white ${
+                  path === item.path && "bg-gray-500 text-white"
                 }`}
               >
                 <item.icon />

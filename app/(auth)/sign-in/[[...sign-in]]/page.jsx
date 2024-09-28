@@ -1,16 +1,14 @@
-import Logo from "@/app/Logo";
-import { ModeToggle } from "@/components/modeToggle/ModeToggle";
 import { SignIn } from "@clerk/nextjs";
+import AuthHeader from "../../_components/AuthHeader";
 
 export default function Page() {
   return (
     <>
       <div className="flex items-center justify-center min-h-screen flex-col">
         <div className="flex items-center justify-between mb-5 gap-x-5">
-          <Logo />
-
-          <ModeToggle />
+          <AuthHeader />
         </div>
+
         <SignIn />
       </div>
     </>

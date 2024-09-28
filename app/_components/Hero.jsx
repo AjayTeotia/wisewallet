@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
       <Image
-        className="-mt-9 rounded-xl border-2"
+        className="-mt-9 rounded-xl "
         src={"/dashboard.png"}
         alt={"dashboard"}
         width={1000}
