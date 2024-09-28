@@ -45,7 +45,7 @@ const CreateBudget = ({ refreshData }) => {
       toast.success("Budget created successfully");
     }
 
-    console.log(res);
+    // console.log(res);
   };
 
   return (
@@ -94,7 +94,6 @@ const CreateBudget = ({ refreshData }) => {
                   <h2 className="font-medium my-2">Budget Amount</h2>
                   <Input
                     type="number"
-                   
                     placeholder="e.g. ₹ 500"
                     onChange={(e) => setAmount(e.target.value)}
                   />

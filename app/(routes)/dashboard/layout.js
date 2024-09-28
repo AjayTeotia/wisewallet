@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }) => {
       .from(Budgets)
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress));
 
-    console.log(res);
+    // console.log(res);
 
     if (res.length === 0) {
       routes.replace("/dashboard/budgets");
