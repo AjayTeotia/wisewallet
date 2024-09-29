@@ -150,8 +150,6 @@ const ExpensesPage = ({ params }) => {
       </div>
 
       <div className="mt-4">
-        <h2 className="font-bold text-xl">Latest Expenses</h2>
-
         <ExpensesListTable
           expensesList={expensesList}
           refreshData={() => getBudgetInfo()}

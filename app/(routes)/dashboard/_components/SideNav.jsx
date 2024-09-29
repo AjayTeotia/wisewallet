@@ -53,7 +53,7 @@ const SideNav = () => {
   }, []);
 
   return (
-    <div className="h-screen border p-5 shadow-md">
+    <div className="h-screen border-r p-5 shadow-md">
       <Logo />
 
       <div className="flex flex-col items-center gap-y-10">

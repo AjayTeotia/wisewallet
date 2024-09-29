@@ -17,7 +17,8 @@ const ExpensesListTable = ({ expensesList, refreshData }) => {
 
   return (
     <div className="mt-5 border rounded-xl  overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-300">
+      <h2 className="font-bold text-lg p-2 text-center">Latest Expenses</h2>
+      <table className="mt-2 min-w-full divide-y divide-gray-300">
         <thead className="bg-black text-white">
           <tr>
             <th className="py-2 p-5 text-left text-lg font-semibold">Name</th>
