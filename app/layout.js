@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
             <Toaster />
             <Analytics />
           </ThemeProvider>
+          <SpeedInsights />
           <Analytics />
         </body>
       </html>
