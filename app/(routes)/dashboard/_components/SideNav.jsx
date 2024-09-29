@@ -34,12 +34,7 @@ const SideNav = () => {
       path: "/dashboard/expenses",
       icon: ReceiptText,
     },
-    {
-      id: 4,
-      name: "Upgrade",
-      path: "/dashboard/upgrade",
-      icon: ShieldCheck,
-    },
+    
   ];
 
   const path = usePathname();

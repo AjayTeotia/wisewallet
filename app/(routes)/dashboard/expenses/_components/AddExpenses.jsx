@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { db } from "@/utils/dbConfig";
 import { Budgets, Expenses } from "@/utils/schema";
+import { Loader } from "lucide-react";
 import moment from "moment";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -11,8 +12,10 @@ import { toast } from "sonner";
 const AddExpenses = ({ budgetId, user, refreshData }) => {
   const [name, setName] = useState();
   const [amount, setAmount] = useState();
+  const [loading, setLoading] = useState(false);
 
   const addNewExpense = async () => {
+    setLoading(true);
     const res = await db
       .insert(Expenses)
       .values({
@@ -23,14 +26,20 @@ const AddExpenses = ({ budgetId, user, refreshData }) => {
       })
       .returning({ insertedId: Budgets.id });
 
+    setName("");
+    setAmount("");
+
     // console.log(res);
     if (res) {
+      setLoading(false);
       refreshData();
 
       toast.success("Expense added successfully");
       setName("");
       setAmount("");
     }
+
+    setLoading(false);
   };
   return (
     <div className="border p-5 rounded-lg">
@@ -40,6 +49,7 @@ const AddExpenses = ({ budgetId, user, refreshData }) => {
         <h2 className="font-medium my-2">Expenses Name</h2>
         <Input
           type="text"
+          value={name}
           placeholder="e.g. Bedroom Decor"
           onChange={(e) => setName(e.target.value)}
         />
@@ -52,6 +62,7 @@ const AddExpenses = ({ budgetId, user, refreshData }) => {
           <h2 className="font-medium my-2">Budget Amount</h2>
           <Input
             type="number"
+            value={amount}
             placeholder="e.g. ₹ 500"
             onChange={(e) => setAmount(e.target.value)}
           />
@@ -59,11 +70,15 @@ const AddExpenses = ({ budgetId, user, refreshData }) => {
       </div>
 
       <Button
-        disabled={!(name && amount)}
+        disabled={!(name && amount) || loading}
         onClick={() => addNewExpense()}
         className="mt-6 w-full"
       >
-        Add Expenses
+        {loading ? (
+          <Loader className="mr-2 h-4 w-4 animate-spin" />
+        ) : (
+          "Add Expenses"
+        )}
       </Button>
     </div>
   );

@@ -1,8 +1,13 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
 const Hero = () => {
+  const { user, isSignedIn } = useUser();
+
   return (
     <section className="flex items-center flex-col bg-background pb-32 p-3">
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex">
@@ -27,15 +32,23 @@ const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="/sign-up">
-              <Button>Get Started</Button>
-            </Link>
+            {isSignedIn ? (
+              <>
+                <Link href="/dashboard">
+                  <Button >Go to Dashboard</Button>
+                </Link>
+              </>
+            ) : (
+              <Link href="/sign-up">
+                <Button>Get Started</Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
 
       <Image
-        className="-mt-9 rounded-xl "
+        className="-mt-9 rounded-xl border-8 "
         src={"/dashboard.png"}
         alt={"dashboard"}
         width={1000}

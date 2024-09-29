@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import AddExpenses from "../_components/AddExpenses";
 import ExpensesListTable from "../_components/ExpensesListTable";
 import { Button } from "@/components/ui/button";
-import { Trash } from "lucide-react";
+import { ArrowLeft, Trash } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -91,7 +91,14 @@ const ExpensesPage = ({ params }) => {
   return (
     <div className="p-10">
       <h2 className="text-lg md:text-2xl font-bold flex justify-between items-center">
-        My Expenses
+        <div className="flex items-center gap-x-2 cursor-pointer">
+          <ArrowLeft
+            onClick={() => routes.replace("/dashboard/budgets")}
+            className="w-6 h-6"
+          />{" "}
+          My Expenses
+        </div>
+
         <div className="flex items-center p-2  md:font-semibold gap-x-2">
           <EditBudget
             className="w-20 md:w-full"

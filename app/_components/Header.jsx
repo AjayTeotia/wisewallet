@@ -17,7 +17,13 @@ const Header = () => {
         <ModeToggle />
 
         {isSignedIn ? (
-          <UserButton />
+          <>
+            <Link href="/dashboard">
+              <Button>Go to Dashboard</Button>
+            </Link>
+
+            <UserButton />
+          </>
         ) : (
           <Link href="/sign-up">
             <Button>Get Started</Button>
