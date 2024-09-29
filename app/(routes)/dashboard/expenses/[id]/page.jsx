@@ -90,14 +90,21 @@ const ExpensesPage = ({ params }) => {
 
   return (
     <div className="p-10">
-      <h2 className="text-2xl font-bold flex justify-between items-center">
+      <h2 className="text-lg md:text-2xl font-bold flex justify-between items-center">
         My Expenses
-        <div className="flex items-center font-semibold gap-x-2">
-          <EditBudget budgetInfo={budgetInfo} refreshData={getBudgetInfo} />
+        <div className="flex items-center p-2  md:font-semibold gap-x-2">
+          <EditBudget
+            className="w-20 md:w-full"
+            budgetInfo={budgetInfo}
+            refreshData={getBudgetInfo}
+          />
 
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button className="flex gap-2 items-center" variant="destructive">
+              <Button
+                className="flex gap-2 items-center w-20 md:w-full"
+                variant="destructive"
+              >
                 <Trash /> Delete
               </Button>
             </AlertDialogTrigger>
