@@ -57,7 +57,7 @@ const DashboardHeader = () => {
               </Button>
             </SheetTrigger>
 
-            <SheetContent className="w-[400px] sm:w-[540px]" side={"left"}>
+            <SheetContent className="w-[350px] sm:w-[540px]" side={"left"}>
               <Logo />
               <div className="flex flex-col gap-1 pt-4">
                 {navItems.map((item) => (

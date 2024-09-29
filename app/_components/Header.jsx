@@ -19,7 +19,7 @@ const Header = () => {
         {isSignedIn ? (
           <>
             <Link href="/dashboard">
-              <Button>Go to Dashboard</Button>
+              <Button> Dashboard</Button>
             </Link>
 
             <UserButton />
