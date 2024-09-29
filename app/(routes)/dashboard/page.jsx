@@ -7,6 +7,7 @@ import { desc, eq, getTableColumns, sql } from "drizzle-orm";
 import { Budgets, Expenses } from "@/utils/schema";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import BarChartDashboard from "./expenses/_components/BarChartDashboard";
 
 const page = () => {
   const { user } = useUser();
@@ -31,7 +32,8 @@ const page = () => {
 
     setBudgetList(res);
     setLoading(false);
-    console.log(res);
+
+    //  console.log(res);
   };
 
   useEffect(() => {
@@ -53,6 +55,14 @@ const page = () => {
       </p>
 
       <CardInfo budgetList={budgetList} />
+
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-10 ">
+        <div className="md:col-span-2">
+          <BarChartDashboard budgetList={budgetList} />
+        </div> 
+
+        <div className="">Other content </div>
+      </div>
     </div>
   );
 };
